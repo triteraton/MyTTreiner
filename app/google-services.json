@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "828346965861",
+    "firebase_url": "https://myttreiner-default-rtdb.firebaseio.com",
+    "project_id": "myttreiner",
+    "storage_bucket": "myttreiner.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828346965861:android:7b991a480d8666a9bc0b8c",
+        "android_client_info": {
+          "package_name": "com.ivan.myttreiner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "828346965861-7laevqkns8lg2pjh8g3q67ca2bseu0rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ivan.myttreiner",
+            "certificate_hash": "2071547cd09b5018a7323aec52781974fa249ab2"
+          }
+        },
+        {
+          "client_id": "828346965861-lh22pgmmd4rfrdfqioo9ihc4hig64qkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR5o_tRxXJF7zaekO_If8v0ckTwVRTTjM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "828346965861-lh22pgmmd4rfrdfqioo9ihc4hig64qkb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
