@@ -47,7 +47,7 @@ fun DrawQuestions(){
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top){
         quests.forEach { quest ->
-            quest.Draw()
+            quest.draw()
 
         }
         Button(
