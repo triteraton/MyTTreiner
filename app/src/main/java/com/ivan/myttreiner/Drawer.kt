@@ -1,13 +1,9 @@
 package com.ivan.myttreiner
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Button
 import androidx.compose.material3.DrawerValue
@@ -22,29 +18,37 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.ivan.myttreiner.collectionData.FullScreenOfQuest
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Drawer () {
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "MainScreen"){
+        composable("MainScreen"){ MainScreen()}
+        composable("FullScreenOfQuest"){FullScreenOfQuest()}
+    }
     val items = listOf(
         DrawerItems(
             Icons.Default.AccountBox,
             "Мой план"
-        ),
+        ) {
+            navController.navigate("MainScreen")
+        },
         DrawerItems(
             Icons.Default.Edit,
-            "Сменить план"
-        ),
-        DrawerItems(
-            Icons.Default.ExitToApp,
-            "Выйти"
-        )
+            "Сменить план",
+        ){
+            navController.navigate("FullScreenOfQuest")
+        }
     )
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -70,28 +74,27 @@ fun Drawer () {
                         onClick = {
                             scope.launch {
                                 selectedItem.value = item
+                                item.action()
                                 drawerState.close()
+
                             }
                         }
                     )
                 }
             }
         }, content = {
-            Box(modifier = Modifier.fillMaxSize()/*,
-                contentAlignment = Alignment.Center*/
-            ){
-                Button(onClick ={
-                    scope.launch {
-                        drawerState.open()
-                    }
-                }){
-                    Icon(imageVector = Icons.Default.Menu, contentDescription = "меню")
+            Button(onClick ={
+                scope.launch {
+                    drawerState.open()
                 }
+            }){
+                Icon(imageVector = Icons.Default.Menu, contentDescription = "меню")
             }
         })
 }
 
 data class DrawerItems(
     val imageVector: ImageVector,
-    val title: String
+    val title: String,
+    val action: () -> Unit
 )

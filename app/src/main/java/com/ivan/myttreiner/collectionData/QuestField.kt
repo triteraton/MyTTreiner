@@ -1,23 +1,14 @@
-package com.ivan.myttrener_v2.collectionData
+package com.ivan.myttreiner.collectionData
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+
 
 open class QuestField(
     private var questText: String,
-    private var result: String = ""
+    private var result: String = "",
 ) {
     fun getQuestText(): String {
         return questText
-    }
-
-    fun setQuestText(text: String) {
-        questText = text
     }
 
     fun getResult(): String {
@@ -29,7 +20,7 @@ open class QuestField(
     }
 
     @Composable
-    open fun Draw(){
-
+    open fun draw (): String{
+        return ""
     }
 }

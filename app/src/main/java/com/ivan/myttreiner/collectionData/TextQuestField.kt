@@ -1,4 +1,4 @@
-package com.ivan.trener.test
+package com.ivan.myttreiner.collectionData
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,28 +14,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ivan.myttrener_v2.collectionData.QuestField
 
-class TextQuestField(questText: String) : QuestField(questText) {
+class TextQuestField(questText: String, val placeHolder: String) : QuestField(questText) {
 
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
-    override fun Draw (){
-        val message = remember{mutableStateOf("")}
-        Card(modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 5.dp, bottom = 5.dp)) {
-            Text(modifier = Modifier.padding(start = 10.dp),text = getQuestText())
-            Row(){
+    override fun draw(): String {
+        val message = remember { mutableStateOf("") }
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 5.dp, bottom = 5.dp)
+        ) {
+            Text(modifier = Modifier.padding(start = 10.dp), text = getQuestText())
+            Row() {
                 TextField(
+                    placeholder = { Text(text = placeHolder) },
                     modifier = Modifier.fillMaxWidth(),
                     value = message.value,
-                    textStyle = TextStyle(fontSize=25.sp),
-                    onValueChange = {newText -> message.value = newText
-                    setResult(message.value)}
+                    textStyle = TextStyle(fontSize = 25.sp),
+                    onValueChange = { newText ->
+                        message.value = newText
+                        setResult(message.value)
+                    }
                 )
             }
         }
+        return getResult()
     }
 }
 

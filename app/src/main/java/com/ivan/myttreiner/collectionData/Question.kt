@@ -1,4 +1,4 @@
-package com.ivan.myttrener_v2.collectionData
+package com.ivan.myttreiner.collectionData
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,25 +13,15 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.ivan.myttrener_v2.userData.User
 
 class Question(
     questText: String,
     private var answerOptions: List<String>,
 ) : QuestField(questText) {
 
-    fun getAnswerOptions(): List<String> {
-        return answerOptions
-    }
-
-    fun setAnswerOptions(options: List<String>) {
-        answerOptions = options
-    }
-
     @Composable
-    override fun Draw (){
+    override fun draw (): String {
         val selectedOption = remember { mutableStateOf(answerOptions[0]) }
-        var i = 0
         Card(modifier = Modifier
             .fillMaxWidth()
             .padding(top = 5.dp, bottom = 5.dp)) {
@@ -42,13 +32,14 @@ class Question(
                     Row(){
                         RadioButton(selected = selected, onClick = {
                             selectedOption.value = item
-                            /*User.userData[compare(i)] = item*/})
+                            setResult(item)
+                        })
                         Text(text = item)
                     }
-                    i++
                 }
             }
         }
+        return getResult()
     }
 /*
     fun compare(index: Int): String {
