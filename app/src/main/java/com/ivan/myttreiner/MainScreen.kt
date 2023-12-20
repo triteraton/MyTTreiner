@@ -72,7 +72,6 @@ fun MainScreen (){
                     )
                 }
             }
-            // ... Аналогично для остальных столбцов
             Box(modifier = Modifier.weight(1f), contentAlignment = Alignment.Center) {
                 Column(
                     modifier = Modifier.fillMaxHeight(),
@@ -132,7 +131,6 @@ fun CustomBoxOfTrein() {
             Text(text = "Приседания")
             Text(text = "Жим штанги")
             Text(text = "Становая тяга")
-            // Добавьте дополнительные строки, если необходимо
         }
     }
 }

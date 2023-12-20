@@ -7,6 +7,10 @@ open class QuestField(
     private var questText: String,
     private var result: String = "",
 ) {
+    @Composable
+    open fun draw (): String{
+        return ""
+    }
     fun getQuestText(): String {
         return questText
     }
@@ -19,8 +23,5 @@ open class QuestField(
         result = value
     }
 
-    @Composable
-    open fun draw (): String{
-        return ""
-    }
+
 }

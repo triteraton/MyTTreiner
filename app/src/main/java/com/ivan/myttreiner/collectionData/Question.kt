@@ -41,26 +41,5 @@ class Question(
         }
         return getResult()
     }
-/*
-    fun compare(index: Int): String {
-        if (index == 0){
-            return "weight"
-        }else if(index == 1){
-            return "height"
-        }else if(index == 2){
-            return "waist"
-        }else if(index == 3){
-            return "hip"
-        }else if(index == 4){
-            return "age"
-        }else if(index == 5){
-            return "sex"
-        }else if(index == 6){
-            return "expect"
-        }else if(index == 7){
-            return "injur"
-        }else return "Wrong index"
-
-    }*/
 }
 

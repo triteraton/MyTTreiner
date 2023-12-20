@@ -3,7 +3,6 @@ package com.ivan.myttreiner
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.ivan.myttreiner.collectionData.FullScreenOfQuest
 import com.ivan.myttreiner.ui.theme.MyTTreinerTheme
 
 
